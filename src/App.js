@@ -28,7 +28,7 @@ const Heading = styled.h1`
   margin-top: 80px;
   &::after {
     content: "";
-    width: 100px;
+    width: 35%;
     height: 6px;
     background-color: #66a2fe;
     display: block;
@@ -42,7 +42,7 @@ function App() {
         <Imagen src={imagen} alt="imagen cripto" />
       </div>
       <div>
-        <Heading>Consulta Criptomonedas, Ahora!</Heading>
+        <Heading>Consulta Criptomonedas</Heading>
         <Formulario />
       </div>
     </Contenedor>
