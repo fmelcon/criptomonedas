@@ -25,6 +25,7 @@ const Boton = styled.input`
 const Formulario = () => {
   // State del listado de Criptomonedas
   const [listcripto, setListCripto] = useState([]);
+  const [error, setError] = useState(false);
 
   const MONEDAS = [
     { codigo: "USD", nombre: "Dolar de Estados Unidos" },
@@ -58,8 +59,20 @@ const Formulario = () => {
     consultarAPI();
   }, []);
 
+  // Cuando el usuario hace submit
+  const cotizarMoneda = (e) => {
+    e.preventDefault();
+    // validar si ambos campos estan llenos
+    if (moneda === "" || criptomoneda === "") {
+      setError(true);
+      return;
+    }
+    setError(false);
+  };
+
   return (
-    <form>
+    <form onSubmit={cotizarMoneda}>
+      {error ? "Hubo un error" : null}
       <SelectMoneda />
       <SelectCripto />
       <Boton type="submit" value="Calcular" />
